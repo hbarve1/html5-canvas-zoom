@@ -30,10 +30,10 @@ function _chart(data: number[][]) {
     d3
       .zoom()
       .scaleExtent([1, 8])
-      .on("zoom", ({ transform }) => zoomed(transform)),
+      .on("zoom", ({ transform }) => zoomed(transform)) as any,
   );
 
-  function zoomed(transform) {
+  function zoomed(transform: any) {
     context.save();
     context.clearRect(0, 0, width, height);
     context.translate(transform.x, transform.y);
